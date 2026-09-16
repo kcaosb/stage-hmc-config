@@ -193,7 +193,8 @@ window.quizConfig = {
       options: [
         {
           value: "proactiveFalselyAccused",
-          labelHtml: "I am being falsely accused or preparing for a case.",
+          labelHtml:
+            "I am being falsely accused or preparing for a case.<br/><span style='font-size: 10px;'> Plans start at $135</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69810f1061c8412f197bf530_Accused.png",
             alt: "thumbs down",
@@ -202,7 +203,8 @@ window.quizConfig = {
         },
         {
           value: "proveSoberParentingTime",
-          labelHtml: "I need to prove I am sober during parenting time.",
+          labelHtml:
+            "I need to prove I am sober during parenting time.<br/><span style='font-size: 10px;'> Plans start at $135</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69810f127fc27e2065acf64e_Sober%20PT.png",
             alt: "person and check icons",
@@ -211,7 +213,8 @@ window.quizConfig = {
         },
         {
           value: "fullAbstinenceKeepKids",
-          labelHtml: "I need to prove that I am sober every day.",
+          labelHtml:
+            "I need to prove that I am sober every day.<br/><span style='font-size: 10px;'> Plans start at $175</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69810f106ab22d06aa2f7922_Abstinence.png",
             alt: "stop sign",
