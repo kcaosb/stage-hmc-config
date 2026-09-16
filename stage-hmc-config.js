@@ -194,7 +194,7 @@ window.quizConfig = {
         {
           value: "proactiveFalselyAccused",
           labelHtml:
-            "I am being falsely accused or preparing for a case.<br/><span style='font-size: 10px;'> Plans start at $135</span>",
+            "I am being falsely accused or preparing for a case.<br/><span style='font-size: 12px;'> Plans start at $135/mo</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69810f1061c8412f197bf530_Accused.png",
             alt: "thumbs down",
@@ -204,7 +204,7 @@ window.quizConfig = {
         {
           value: "proveSoberParentingTime",
           labelHtml:
-            "I need to prove I am sober during parenting time.<br/><span style='font-size: 10px;'> Plans start at $135</span>",
+            "I need to prove I am sober during parenting time.<br/><span style='font-size: 12px;'> Plans start at $135/mo</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69810f127fc27e2065acf64e_Sober%20PT.png",
             alt: "person and check icons",
@@ -214,7 +214,7 @@ window.quizConfig = {
         {
           value: "fullAbstinenceKeepKids",
           labelHtml:
-            "I need to prove that I am sober every day.<br/><span style='font-size: 10px;'> Plans start at $175</span>",
+            "I need to prove that I am sober every day.<br/><span style='font-size: 12px;'> Plans start at $175/mo</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69810f106ab22d06aa2f7922_Abstinence.png",
             alt: "stop sign",
@@ -282,7 +282,7 @@ window.quizConfig = {
         {
           value: "everyDay",
           labelHtml:
-            "<span class='u-normal'>I am willing or required to</span> test every day.",
+            "<span class='u-normal'>I am willing or required to</span> test every day.<br/><span style='font-size: 12px'>Plans start at $175/mo</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69810f10cf15960ad2f62cb4_daily%20testing.avif",
             alt: "calendar with all days highlighted icon",
@@ -299,7 +299,7 @@ window.quizConfig = {
         {
           value: "parentingDaysOnly",
           labelHtml:
-            "<span class='u-normal'>I</span> only <span class='u-normal'>need to</span> test on parenting days.",
+            "<span class='u-normal'>I</span> only <span class='u-normal'>need to</span> test on parenting days.<br/><span style='font-size: 12px'>Plans start at $135/mo</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69810f106563beec4dbc11d9_icon-parenting-only-testing%201.avif",
             alt: "calendar icon with only several days highlighted",
@@ -338,7 +338,7 @@ window.quizConfig = {
         {
           value: "concernedOnly",
           labelHtml:
-            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'>with my</span> Concerned Party only.",
+            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'>with my</span> Concerned Party only.<br/><span style='font-size: 12px;'>Plans start at $175/mo</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/698131dd4bad2f8d698ab385_One%20Person.png",
             alt: "one person",
@@ -348,7 +348,7 @@ window.quizConfig = {
         {
           value: "concernedAndOthers",
           labelHtml:
-            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'>with my</span> Concerned Party and <span class='u-normal'>other</span> contacts.",
+            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'>with my</span> Concerned Party and <span class='u-normal'>other</span> contacts.<br/><span style='font-size: 12px;'>Plans start at $225/mo</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/698131dd9b14c609f0ac6f6f_Two%20People%20%2B.png",
             alt: "two people",
@@ -498,7 +498,7 @@ window.quizConfig = {
         {
           value: "twentyEnough",
           labelHtml:
-            "20 testing days per month is enough. <span class='u-normal'>Extra days at $15 each.</span>",
+            "20 testing days per month is enough. <span class='u-normal'>Extra days at $15 each.</span><br/><span style='font-size: 12px;'>Plans start at $135/mo</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69a8be108f33f4d708defb0b_Icon-Calendar-20-Days.avif",
             alt: "calendar icon",
@@ -507,7 +507,8 @@ window.quizConfig = {
         },
         {
           value: "needMoreThanTwenty",
-          labelHtml: "I need more than 20 testing days a month.",
+          labelHtml:
+            "I need more than 20 testing days a month.<br/><span style='font-size: 12px;'>Plans start at $245/mo</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69a8be1088cb4c64a242b2bd_Icon-Calendar-20-Plus-Days.avif",
             alt: "calendar icon",
@@ -535,7 +536,7 @@ window.quizConfig = {
         {
           value: "concernedOnly",
           labelHtml:
-            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'>with my</span> Concerned Party only.",
+            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'>with my</span> Concerned Party only.<br/><span style='font-size: 12px;'>Plans start at $135/mo</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/698131dd4bad2f8d698ab385_One%20Person.png",
             alt: "one person",
@@ -545,7 +546,7 @@ window.quizConfig = {
         {
           value: "concernedAndOthers",
           labelHtml:
-            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'>with my</span> Concerned Party and <span class='u-normal'>other</span> contacts.",
+            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'>with my</span> Concerned Party and <span class='u-normal'>other</span> contacts.<br/><span style='font-size: 12px;'>Plans start at $190/mo</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/698131dd9b14c609f0ac6f6f_Two%20People%20%2B.png",
             alt: "two people",
@@ -695,7 +696,7 @@ window.quizConfig = {
         {
           value: "oneContact",
           labelHtml:
-            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'> with</span> one contact.",
+            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'> with</span> one contact.<br/><span style='font-size: 12px;'>Plans start at $170/mo</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/698131dd4bad2f8d698ab385_One%20Person.png",
             alt: "one person",
@@ -705,7 +706,7 @@ window.quizConfig = {
         {
           value: "moreThanOneContact",
           labelHtml:
-            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'>with</span> more than one Contact.",
+            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'>with</span> more than one Contact.<span style='font-size: 12px;'>Plans start at $215/mo</span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/698131dd9b14c609f0ac6f6f_Two%20People%20%2B.png",
             alt: "two people",
