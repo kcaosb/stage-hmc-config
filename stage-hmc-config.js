@@ -498,7 +498,7 @@ window.quizConfig = {
         {
           value: "twentyEnough",
           labelHtml:
-            "20 testing days per month is enough. <span class='u-normal'>Extra days at $15 each.</span><br/><span style='font-size: 12px;'>Plans start at $135<span style='font-size: 10px;'>/mo</span></span>",
+            "20 testing days per month is enough. <span class='u-normal'>Extra days at $15 each.</span><br/><span class='u-normal' style='font-size: 12px;'>Plans start at $135<span style='font-size: 10px;'>/mo</span></span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69a8be108f33f4d708defb0b_Icon-Calendar-20-Days.avif",
             alt: "calendar icon",
@@ -706,7 +706,7 @@ window.quizConfig = {
         {
           value: "moreThanOneContact",
           labelHtml:
-            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'>with</span> more than one Contact.<span class='u-normal' style='font-size: 12px;'>Plans start at $215<span style='font-size: 10px;'>/mo</span></span>",
+            "<span class='u-normal'>I need my</span> results shared <span class='u-normal'>with</span> more than one Contact.<br/><span class='u-normal' style='font-size: 12px;'>Plans start at $215<span style='font-size: 10px;'>/mo</span></span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/698131dd9b14c609f0ac6f6f_Two%20People%20%2B.png",
             alt: "two people",
@@ -1175,7 +1175,7 @@ window.quizConfig = {
         {
           value: "twentyEnough",
           labelHtml:
-            "20 testing days per month is enough. <span class='u-normal'>Extra days are $15 each.</span>",
+            "20 testing days per month is enough. <span class='u-normal'>Extra days are $15 each.</span><br/><span class='u-normal' style='font-size: 12px;'>Plans start at $135<span style='font-size: 10px;'>/mo</span></span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69a8be108f33f4d708defb0b_Icon-Calendar-20-Days.avif",
             alt: "calendar icon",
@@ -1185,7 +1185,7 @@ window.quizConfig = {
         {
           value: "needMoreThanTwenty",
           labelHtml:
-            "The Monitored Client needs more than 20 testing days per month.",
+            "The Monitored Client needs more than 20 testing days per month.<br/><span class='u-normal' style='font-size: 12px;'>Plans start at $245<span style='font-size: 10px;'>/mo</span></span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69a8be1088cb4c64a242b2bd_Icon-Calendar-20-Plus-Days.avif",
             alt: "calendar icon",
