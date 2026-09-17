@@ -314,7 +314,7 @@ window.quizConfig = {
       headlineHtml:
         "<span style='font-size: 16px;'>We suggest our</span><br/><span style='color: #00abdf;'>Level 2 - Daily Testing Program</span>",
       textHtml:
-        "<span style='font-size: 16px;'>Consistent monitoring, 7 days a week. Testing schedules managed by Soberlink.</span><br/><span style='font-size: 12px; font-weight: bold;'>Plans start at $175<span style='font-size: 10px;'>/mo</span></span>",
+        "<span style='font-size: 16px;'>Consistent monitoring, 7 days a week. Testing schedules managed by Soberlink.</span><br/><span style='font-size: 12px; font-weight: bold;'>Plans range from $175<span style='font-size: 10px;'>/mo</span>to $285<span style='font-size: 10px;'>/mo</span></span>",
       imageUrl:
         "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69a8913be2c8175724ce3d4f_Level-1-Photo%201.avif",
       primaryCta: { label: "Next", nextId: "qA6L2_shareScope_submitter" },
@@ -485,7 +485,7 @@ window.quizConfig = {
       headlineHtml:
         "<span style='font-size: 16px;'>We suggest our</span><br/> <span style='color: #00abdf;'>Level 1 - Parenting Time Only Program</span>",
       textHtml:
-        "<span style='font-size: 16px;'>This plan allows you to test only on days that you need to show proof of sobriety.</span><br/><span style='font-size: 12px; font-weight: bold;'>Plans start at $135<span style='font-size: 10px;'>/mo</span></span>",
+        "<span style='font-size: 16px;'>This plan allows you to test only on days that you need to show proof of sobriety.</span><br/><span style='font-size: 12px; font-weight: bold;'>Plans range from $135<span style='font-size: 10px;'>/mo</span>to $245<span style='font-size: 10px;'>/mo</span></span>",
       imageUrl:
         "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69a8913be2c8175724ce3d4f_Level-1-Photo%201.avif",
       primaryCta: { label: "Next", nextId: "qA6L1_testingDays_submitter" },
@@ -987,7 +987,7 @@ window.quizConfig = {
       headlineHtml:
         "<span style='font-size: 20px;'>Because your <span class='u-bold'>Monitored Client needs to test everyday,</span> we suggest our:</span><br/><br/><span style='color: #00abdf;'>Level 2 - Daily Testing Program</span>",
       textHtml:
-        "<span style='font-size: 16px;'>Consistent monitoring, 7 days a week. Testing schedules managed by Soberlink.</span><br/><span style='font-size: 12px; font-weight: bold;'>Plans start at $175<span style='font-size: 10px;'>/mo</span></span>",
+        "<span style='font-size: 16px;'>Consistent monitoring, 7 days a week. Testing schedules managed by Soberlink.</span><br/><span style='font-size: 12px; font-weight: bold;'>Plans range from $175<span style='font-size: 10px;'>/mo</span>to $285<span style='font-size: 10px;'>/mo</span></span>",
       imageUrl:
         "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69b09a0c54e30e7580833743_level-2.avif",
       primaryCta: {
@@ -1162,7 +1162,7 @@ window.quizConfig = {
       headlineHtml:
         "<span style='font-size: 20px;'>Because your <span class='u-bold'>Monitored Client only needs to test on parenting days,</span> we suggest our:</span><br/><br/><span style='color: #00abdf;'>Level 1 - Parenting Time Only Program.</span>",
       textHtml:
-        "<span style='font-size: 16px;'>This plan allows you to test only on days that you need to show proof of sobriety.</span><br/><span style='font-size: 12px; font-weight: bold;'>Plans start at $135<span style='font-size: 10px;'>/mo</span></span>",
+        "<span style='font-size: 16px;'>This plan allows you to test only on days that you need to show proof of sobriety.</span><br/><span style='font-size: 12px; font-weight: bold;'>Plans range from $135<span style='font-size: 10px;'>/mo</span> to $245<span style='font-size: 10px;'>/mo</span></span>",
       imageUrl:
         "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69a8913be2c8175724ce3d4f_Level-1-Photo%201.avif",
       primaryCta: { label: "Next", nextId: "qB5L1_testingDays_receiver" },
