@@ -1,4 +1,4 @@
-  const { createApp, reactive } = Vue;
+const { createApp, reactive } = Vue;
 
   const _preloaded = new Set();
 
@@ -36,6 +36,14 @@
         terms: "false",
         otherText: "",
         sessionId: "",
+
+        // "Send us a message" inquiry form state
+        inquiryFirst: "",
+        inquiryLast: "",
+        inquiryEmail: "",
+        inquiryMessage: "",
+        inquiryModalState: "form",
+        inquiryModalError: "",
       };
     },
     computed: {
@@ -65,6 +73,13 @@
         if (this.isHowHearRC && !rc) return false;
 
         return true;
+      },
+      canSubmitInquiry() {
+        const first = String(this.inquiryFirst || "").trim();
+        const last = String(this.inquiryLast || "").trim();
+        const email = String(this.inquiryEmail || "").trim();
+        const message = String(this.inquiryMessage || "").trim();
+        return !!(first && last && email && message);
       },
       isRestartCtaNode() {
         const id = this.currentNode?.id;
@@ -757,6 +772,74 @@
           this.isSubmitting = false;
         }
       },
+
+      // ----- "Send us a message" inquiry form -----
+      onSendUsAMessage() {
+        this.resetInquiryForm();
+        this.openModal("inquiryForm");
+      },
+      resetInquiryForm() {
+        this.inquiryFirst = "";
+        this.inquiryLast = "";
+        this.inquiryEmail = "";
+        this.inquiryMessage = "";
+        this.inquiryModalState = "form";
+        this.inquiryModalError = "";
+      },
+      validateInquiryForm() {
+        const first = String(this.inquiryFirst || "").trim();
+        const last = String(this.inquiryLast || "").trim();
+        const email = String(this.inquiryEmail || "").trim();
+        const message = String(this.inquiryMessage || "").trim();
+
+        if (!first || !last) {
+          this.inquiryModalError = "Please enter your first and last name.";
+          return false;
+        }
+        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (!email || !emailOk) {
+          this.inquiryModalError = "Please enter a valid email address.";
+          return false;
+        }
+        if (!message) {
+          this.inquiryModalError = "Please enter a message.";
+          return false;
+        }
+        this.inquiryModalError = "";
+        return true;
+      },
+      async submitInquiry(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        if (this.isSubmitting) return;
+
+        if (!this.validateInquiryForm()) return;
+
+        if (!this.submissionId) {
+          this.submissionId =
+            typeof crypto !== "undefined" && crypto.randomUUID
+              ? crypto.randomUUID()
+              : `sub_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+        }
+
+        this.submissionSource = "contactMessage";
+        this.emailForResults = this.inquiryEmail || "";
+
+        try {
+          this.isSubmitting = true;
+          this.inquiryModalError = "";
+
+          await this.submitToMake();
+
+          this.inquiryModalState = "success";
+        } catch (err) {
+          console.error(err);
+          this.inquiryModalState = "error";
+          this.inquiryModalError = "Something went wrong. Please try again.";
+        } finally {
+          this.isSubmitting = false;
+        }
+      },
+
       renderDeviceMetaHtml(html) {
         if (!html) return "";
 
@@ -1239,6 +1322,7 @@
         this.activeModalId = null;
         this.bagModalError = "";
         this.emailModalError = "";
+        this.inquiryModalError = "";
         document.documentElement.classList.remove("is-modal-open");
         document.body.classList.remove("is-modal-open");
       },
@@ -1352,6 +1436,13 @@
             ? this.bagEmail || ""
             : "";
           row.userEmail = this.isLevelProgram ? this.bagEmail || "" : "";
+        }
+
+        if (this.submissionSource === "contactMessage") {
+          row.inquiryFirstName = this.inquiryFirst || "";
+          row.inquiryLastName = this.inquiryLast || "";
+          row.inquiryEmail = this.inquiryEmail || "";
+          row.inquiryMessage = this.inquiryMessage || "";
         }
 
         return row;
