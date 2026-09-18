@@ -962,7 +962,7 @@ window.quizConfig = {
         {
           value: "everyDay",
           labelHtml:
-            "<span class='u-normal'>Your</span> Monitored Client<span class='u-normal'> needs to</span> test every day.",
+            "<span class='u-normal'>Your</span> Monitored Client<span class='u-normal'> needs to</span> test every day.<br/><span class='u-normal' style='font-size: 12px;'> Plans start at $175<span style='font-size: 10px;'>/mo</span></span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69810f10cf15960ad2f62cb4_daily%20testing.avif",
             alt: "calendar with all days highlighted icon",
@@ -972,7 +972,7 @@ window.quizConfig = {
         {
           value: "parentingDaysOnly",
           labelHtml:
-            "<span class='u-normal'>Your</span> Monitored Client<span class='u-normal'> only needs to</span> test on parenting days.",
+            "<span class='u-normal'>Your</span> Monitored Client<span class='u-normal'> only needs to</span> test on parenting days.<br/><span class='u-normal' style='font-size: 12px;'> Plans start at $135<span style='font-size: 10px;'>/mo</span></span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69810f106563beec4dbc11d9_icon-parenting-only-testing%201.avif",
             alt: "calendar icon with only several days highlighted",
@@ -1015,7 +1015,7 @@ window.quizConfig = {
         {
           value: "onlyMe",
           labelHtml:
-            "<span class='u-normal'>The</span> results only  <span class='u-normal'>need to be</span> shared with me, <span class='u-normal'>the Concerned Party.</span>",
+            "<span class='u-normal'>The</span> results only  <span class='u-normal'>need to be</span> shared with me, <span class='u-normal'>the Concerned Party.</span><br/><span class='u-normal' style='font-size: 12px;'> Plans start at $175<span style='font-size: 10px;'>/mo</span></span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/698131dd4bad2f8d698ab385_One%20Person.png",
             alt: "one person",
@@ -1025,7 +1025,7 @@ window.quizConfig = {
         {
           value: "meAndOthers",
           labelHtml:
-            "<span class='u-normal'>The</span> results <span class='u-normal'>need to be</span> shared with me and <span class='u-normal'>other</span> Contacts.",
+            "<span class='u-normal'>The</span> results <span class='u-normal'>need to be</span> shared with me and <span class='u-normal'>other</span> Contacts.<br/><span class='u-normal' style='font-size: 12px;'> Plans start at $225<span style='font-size: 10px;'>/mo</span></span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/698131dd9b14c609f0ac6f6f_Two%20People%20%2B.png",
             alt: "two people",
