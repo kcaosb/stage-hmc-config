@@ -1213,7 +1213,7 @@ window.quizConfig = {
         {
           value: "onlyMe",
           labelHtml:
-            "<span class='u-normal'>The</span> results only <span class='u-normal'>need to be</span> shared with me, <span class='u-normal'>the Concerned Party.</span>",
+            "<span class='u-normal'>The</span> results only <span class='u-normal'>need to be</span> shared with me, <span class='u-normal'>the Concerned Party.</span><br/><span class='u-normal' style='font-size: 12px;'>Plans start at $135<span style='font-size: 10px;'>/mo</span></span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/698131dd4bad2f8d698ab385_One%20Person.png",
             alt: "one person",
@@ -1223,7 +1223,7 @@ window.quizConfig = {
         {
           value: "meAndOthers",
           labelHtml:
-            "<span class='u-normal'>The</span> results <span class='u-normal'>need to be</span> shared with me and <span class='u-normal'>other</span> Contacts.",
+            "<span class='u-normal'>The</span> results <span class='u-normal'>need to be</span> shared with me and <span class='u-normal'>other</span> Contacts.<br/><span class='u-normal' style='font-size: 12px;'>Plans start at $190<span style='font-size: 10px;'>/mo</span></span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/698131dd9b14c609f0ac6f6f_Two%20People%20%2B.png",
             alt: "two people",
@@ -1395,7 +1395,7 @@ window.quizConfig = {
         {
           value: "onlyMe",
           labelHtml:
-            "<span class='u-normal'>The</span> results <span class='u-normal'>only need to be</span> shared with me.",
+            "<span class='u-normal'>The</span> results <span class='u-normal'>only need to be</span> shared with me.<br/><span class='u-normal' style='font-size: 12px;'>Plans start at $170<span style='font-size: 10px;'>/mo</span></span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/698131dd4bad2f8d698ab385_One%20Person.png",
             alt: "one person",
@@ -1405,7 +1405,7 @@ window.quizConfig = {
         {
           value: "meAndOthers",
           labelHtml:
-            "<span class='u-normal'>The</span> results <span class='u-normal'>need to be</span> shared with me and other Contacts.",
+            "<span class='u-normal'>The</span> results <span class='u-normal'>need to be</span> shared with me and other Contacts.<br/><span class='u-normal' style='font-size: 12px;'>Plans start at $215<span style='font-size: 10px;'>/mo</span></span>",
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/698131dd9b14c609f0ac6f6f_Two%20People%20%2B.png",
             alt: "two people",
