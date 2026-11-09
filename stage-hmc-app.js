@@ -2,6 +2,14 @@ const { createApp, reactive } = Vue;
 
   const _preloaded = new Set();
 
+  // Values emitted by the "How did you hear about us?" <select> elements.
+  // Keep in sync with the <option value="..."> attributes in the Webflow page.
+  const HEAR_OTHER = "Other";
+  const HEAR_RECOVERY_COMMUNITY = "Recovery Community";
+
+  // Free-text companion answers are stored as `${nodeId}${OTHER_TEXT_SUFFIX}`.
+  const OTHER_TEXT_SUFFIX = "_otherText";
+
   const app = createApp({
     name: "quiz",
     data() {
@@ -33,7 +41,7 @@ const { createApp, reactive } = Vue;
         howHearRC: "",
         bagModalError: "",
         bagModalState: "form",
-        terms: "false",
+        terms: false,
         otherText: "",
         sessionId: "",
 
@@ -57,10 +65,10 @@ const { createApp, reactive } = Vue;
         );
       },
       isHowHearOther() {
-        return this.hear === "Other";
+        return this.hear === HEAR_OTHER;
       },
       isHowHearRC() {
-        return this.isShareProgram && this.hear === "Recovery Community";
+        return this.isShareProgram && this.hear === HEAR_RECOVERY_COMMUNITY;
       },
       canSubmitBagForm() {
         const email = String(this.bagEmail || "").trim();
@@ -301,11 +309,12 @@ const { createApp, reactive } = Vue;
         },
       },
       hear(newVal) {
-        if (newVal !== "other") {
+        // Each free-text follow-up only applies to its own <select> value.
+        if (newVal !== HEAR_OTHER) {
           this.howHearOther = "";
         }
 
-        if (newVal !== "recoveryCommunity") {
+        if (newVal !== HEAR_RECOVERY_COMMUNITY) {
           this.howHearRC = "";
         }
       },
@@ -366,16 +375,28 @@ const { createApp, reactive } = Vue;
       goNext() {
         const node = this.currentNode;
         if (!node || !this.canGoNext) return;
-        if (node.type === "singleChoice" || node.type === "multiChoice") {
-          this.commitAnswer(node);
-          if (this.selectedMulti.includes("other") && this.otherText.trim()) {
-            this.answers[node.id + "_otherText"] = this.otherText.trim();
-          }
-        }
-        this.commitPlanSelectionIfNeeded(node);
+
+        // Resolve the destination first so a dead end causes no side effects.
+        // (computeNextId reads the current selection, not committed answers.)
         const nextId = this.computeNextId(node);
         if (!nextId) return;
+
+        let answerChanged = false;
+        if (node.type === "singleChoice" || node.type === "multiChoice") {
+          answerChanged = this.commitAnswer(node);
+          this.commitOtherText(node);
+        }
+        this.commitPlanSelectionIfNeeded(node);
+
         this.history.push(node.id);
+
+        // If this answer differs from what was previously stored, the old
+        // downstream path may no longer apply: drop answers (and the selected
+        // plan) that are not on the path the user is now actually taking.
+        // An unchanged answer keeps downstream answers so Back -> Next
+        // still pre-fills the screens the user already completed.
+        if (answerChanged) this.pruneAnswersToPath();
+
         this.currentNodeId = nextId;
         this.$nextTick(() => {
           const el = document.getElementById("quiz");
@@ -1118,6 +1139,10 @@ const { createApp, reactive } = Vue;
           this.selectedSingle = prev;
         } else if (node.type === "multiChoice" && Array.isArray(prev)) {
           this.selectedMulti = [...prev];
+          // Restore the free-text companion answer so returning to this
+          // screen (Back) doesn't silently discard what the user typed.
+          const savedOther = this.answers[node.id + OTHER_TEXT_SUFFIX];
+          if (typeof savedOther === "string") this.otherText = savedOther;
         }
       },
       evalRouterNextId(routerNode) {
@@ -1190,12 +1215,65 @@ const { createApp, reactive } = Vue;
 
         return null;
       },
+
+      // Compares two stored answers; multi-choice answers are compared as
+      // sets because routing doesn't depend on the order they were selected.
+      sameAnswer(a, b) {
+        if (Array.isArray(a) && Array.isArray(b)) {
+          if (a.length !== b.length) return false;
+          const sa = [...a].sort();
+          const sb = [...b].sort();
+          return sa.every((v, i) => v === sb[i]);
+        }
+        return a === b;
+      },
+      // Stores the current selection for `node`. Returns true when it differs
+      // from the previously stored answer (or there was none).
       commitAnswer(node) {
-        if (!node) return;
-        if (node.type === "singleChoice")
-          this.answers[node.id] = this.selectedSingle;
-        if (node.type === "multiChoice")
-          this.answers[node.id] = [...this.selectedMulti];
+        if (!node) return false;
+        let next;
+        if (node.type === "singleChoice") next = this.selectedSingle;
+        else if (node.type === "multiChoice") next = [...this.selectedMulti];
+        else return false;
+
+        const prev = this.answers[node.id];
+        this.answers[node.id] = next;
+        return !this.sameAnswer(prev, next);
+      },
+      // Keeps the free-text companion answer in sync with the selection:
+      // stored only while "other" is selected AND text is non-empty,
+      // otherwise any previously stored text is removed (never left stale).
+      commitOtherText(node) {
+        const key = node.id + OTHER_TEXT_SUFFIX;
+        const text = String(this.otherText || "").trim();
+        if (
+          node.type === "multiChoice" &&
+          this.selectedMulti.includes("other") &&
+          text
+        ) {
+          this.answers[key] = text;
+        } else {
+          delete this.answers[key];
+        }
+      },
+      answerKeyNodeId(key) {
+        return key.endsWith(OTHER_TEXT_SUFFIX)
+          ? key.slice(0, -OTHER_TEXT_SUFFIX.length)
+          : key;
+      },
+      // Removes answers for screens that are not on the current path
+      // (`history`), and clears selectedPlan if its plan screen is no longer
+      // on the path. Call after `history` already includes the node just left.
+      pruneAnswersToPath() {
+        const onPath = new Set(this.history);
+        for (const key of Object.keys(this.answers)) {
+          if (!onPath.has(this.answerKeyNodeId(key))) {
+            delete this.answers[key];
+          }
+        }
+        if (this.selectedPlan && !onPath.has(this.selectedPlan)) {
+          this.selectedPlan = null;
+        }
       },
       commitPlanSelectionIfNeeded(node) {
         if (!node) return;
