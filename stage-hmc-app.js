@@ -229,7 +229,20 @@ const { createApp, reactive } = Vue;
         return Math.min(100, Math.round((completedSteps / totalSteps) * 100));
       },
 
+      // Owning a Soberlink 7.0 adds the MTC screen; Cellular 2 skips it.
+      // Until the device is chosen we assume the longer path.
+      ownMtcExtraStep() {
+        return this.answers["qD1_paymentPreference"] === "own" &&
+          this.answers["qD2_own_chooseDevice"] !== "cellular 2"
+          ? 1
+          : 0;
+      },
       estimatedTotalSteps() {
+        const base = this.baseEstimatedTotalSteps;
+        if (this.isRestartCtaNode) return base;
+        return base + this.ownMtcExtraStep;
+      },
+      baseEstimatedTotalSteps() {
         if (this.isRestartCtaNode) return this.history.length;
 
         const useCase = this.answers["q1_useCase"];
@@ -521,22 +534,29 @@ const { createApp, reactive } = Vue;
         }
         return "";
       },
+      // The pricing / NetSuite key for the chosen device option, e.g.
+      // "rent 365", "rent 120", "buy 365 us", "buy 120 us" or "buy".
+      // Used by the cart session, the Make payload and the add-to-cart URL so
+      // they can never disagree.
+      resolveRentOrBuy(finalNode) {
+        if (!finalNode) return "";
+        const ownership = String(finalNode.ownership || "")
+          .trim()
+          .toLowerCase();
+        if (ownership === "rent") {
+          return String(finalNode.pricing?.monthlyRef?.commitment || "");
+        }
+        if (ownership === "own") {
+          return String(finalNode.pricing?.devicePriceRef?.commitment || "buy");
+        }
+        return "";
+      },
       getBagSessionRentOrBuy() {
         const finalNode =
           this.currentNode && this.currentNode.type === "final"
             ? this.currentNode
             : null;
-
-        const ownership = String(finalNode?.ownership || "")
-          .trim()
-          .toLowerCase();
-
-        if (ownership === "own") return "buy";
-
-        if (ownership === "rent") {
-          return String(finalNode?.pricing?.monthlyRef?.commitment || "");
-        }
-        return "";
+        return this.resolveRentOrBuy(finalNode);
       },
       getBagSessionItemIds() {
         const program = this.getBagSessionProgram();
@@ -1033,7 +1053,7 @@ const { createApp, reactive } = Vue;
           opt.priceRef?.cadence === "mo"
             ? "<span style='font-size:12px;'>/mo</span>"
             : "";
-        return `${this.money(n)}${cadence}`;
+        return `${opt.pricePrefixHtml || ""}${this.money(n)}${cadence}`;
       },
 
       finalMonthlyHtml(res) {
@@ -1434,15 +1454,7 @@ const { createApp, reactive } = Vue;
 
         const addToCartUrl = this.buildAddToCartUrlWithAnchor();
 
-        let rentOrBuy = "";
-        const ownership = String(finalNode?.ownership || "")
-          .trim()
-          .toLowerCase();
-        if (ownership === "rent") {
-          rentOrBuy = String(finalNode?.pricing?.monthlyRef?.commitment || "");
-        } else if (ownership === "own") {
-          rentOrBuy = "buy";
-        }
+        const rentOrBuy = this.resolveRentOrBuy(finalNode);
 
         const row = {
           submissionId: this.submissionId,
@@ -1586,16 +1598,9 @@ const { createApp, reactive } = Vue;
 
         const deviceParam = this.displayDeviceParam(finalNode?.device || "");
 
-        let rentOrBuy = "";
-        const ownership = String(finalNode?.ownership || "")
-          .trim()
-          .toLowerCase();
-
-        if (ownership === "rent") {
-          const c = finalNode?.pricing?.monthlyRef?.commitment;
-          rentOrBuy = c ? String(c) : "rent 365";
-        } else if (ownership === "own") {
-          rentOrBuy = "buy";
+        let rentOrBuy = this.resolveRentOrBuy(finalNode);
+        if (!rentOrBuy && String(finalNode?.ownership || "").toLowerCase() === "rent") {
+          rentOrBuy = "rent 365";
         }
 
         const url = new URL(parent);
@@ -1658,7 +1663,12 @@ const { createApp, reactive } = Vue;
           return `${deviceLabel} Rental`;
         }
 
-        if (ownership === "own") return `${deviceLabel} Purchase`;
+        if (ownership === "own") {
+          const c = this.resolveRentOrBuy(finalNode);
+          if (c.includes("120")) return `120-Day ${deviceLabel} Purchase`;
+          if (c.includes("365")) return `365-Day ${deviceLabel} Purchase`;
+          return `${deviceLabel} Purchase`;
+        }
 
         return "Device";
       },
