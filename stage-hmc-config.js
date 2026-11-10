@@ -1,5 +1,5 @@
 window.quizConfig = {
-  version: "2026-04-27",
+  version: "2026-11-09",
   startId: "q1_useCase",
   activeConnectVariant: "s7",
   deviceVariants: {
@@ -59,6 +59,11 @@ window.quizConfig = {
       titleHtml: "<strong>What is a Contact?</strong>",
       bodyHtml:
         "A “Contact” is a person who will receive the results. This is typically a family member, friend, or treatment professional.",
+    },
+    mtcInfo: {
+      titleHtml: "<strong>What is an MTC?</strong>",
+      bodyHtml:
+        "[PLACEHOLDER] Explanation of the MTC will go here. Replace this text before going live.",
     },
     womanStory: {
       titleHtml:
@@ -1547,7 +1552,7 @@ window.quizConfig = {
         {
           value: "rent",
           labelHtml:
-            "<div style='margin-bottom: 5px;'>Rent the Device <span class='u-normal'>from</span> {PRICE}<span style='font-size: 13px;'>/mo</span></div> <ul class='u-normal' style='font-size: 14px;'><li>Low monthly payment</li><li>No upfront device costs</li><li>Requires a monitoring plan commitment</li></ul>",
+            "<div style='margin-bottom: 5px;'>Rent the Device <span class='u-normal'>from</span> {PRICE}<span style='font-size: 13px;'>/mo</span></div> <ul class='u-normal' style='font-size: 14px;'><li>Low Monthly Payment</li><li>No Upfront Device Costs</li><li>Must be returned</li></ul><div class='u-normal' style='font-size: 11px; color: #666; margin-top: 5px;'>Rentals are available to customers in the United States only.</div>",
           priceRef: { kind: "deviceMin", commitment: "rent 365" },
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69a74e856cfb277a88a9ea3f_rent.avif",
@@ -1558,8 +1563,8 @@ window.quizConfig = {
         {
           value: "own",
           labelHtml:
-            "<div style='margin-bottom: 5px;'>Own the Device <span class='u-normal'>from</span> {PRICE}</div> <ul class='u-normal' style='font-size: 14px;'><li>One-time purchase</li><li>Higher upfront costs</li><li>No Minimum Plan Commitment Required</li></ul>",
-          priceRef: { kind: "deviceMin", commitment: "buy" },
+            "<div style='margin-bottom: 5px;'>Own the Device <span class='u-normal'>from</span> {PRICE}</div> <ul class='u-normal' style='font-size: 14px;'><li>One-time purchase</li><li>Own the device forever</li><li>No Additional Contracts</li></ul>",
+          priceRef: { kind: "deviceMin", commitment: "buy 365 us" },
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6a0227385cfc2c08d4208674_icon-buy.avif",
             alt: "buy icon",
@@ -1578,14 +1583,18 @@ window.quizConfig = {
         {
           value: "connect",
           title: "{CONNECT_FAMILY_LABEL}",
-          subtitle: "No minimum monitoring commitment required",
           descriptionHtml: `Bluetooth device uses smartphone to transmit test results.<br><span style='color: #00abdf; font-size: 10px;'>Smartphone pairing required.</span>`,
-          priceRef: { kind: "device", device: "connect", commitment: "buy" },
+          pricePrefixHtml: "<span class='u-normal'>from </span>",
+          priceRef: {
+            kind: "device",
+            device: "connect",
+            commitment: "buy 365 us",
+          },
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6887f2ec5c894c7fd201e4d4_connect-dec-tree-100px-w.avif",
             alt: "{CONNECT_FAMILY_LABEL}",
           },
-          nextId: "res_final_own_connect",
+          nextId: "qD3_own_monitorDuration",
         },
         {
           value: "cellular 2",
@@ -1602,12 +1611,93 @@ window.quizConfig = {
         },
       ],
     },
+    qD3_own_monitorDuration: {
+      id: "qD3_own_monitorDuration",
+      type: "singleChoice",
+      text: "How long do you plan on using Soberlink? Pay less by monitoring longer.",
+      choiceLayout: "rentDeviceCards",
+      size: "xxlg",
+      infoIcon: {
+        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69a9fcbcf5cd846f8b7e504b_icon%20info.png",
+        alt: "Info icon",
+        text: "What is an MTC?",
+      },
+      infoLink: { type: "lightbox", id: "mtcInfo", labelHtml: "MTC info" },
+      options: [
+        {
+          value: "oneYear",
+          labelHtml:
+            "<span class='u-normal'>I plan to monitor for at least</span> one year.",
+          badge: {
+            label: "EXPERTS SUGGEST AT LEAST 1 YEAR OF MONITORING",
+            icon: {
+              url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6994c2f22b9a7cc99fa25884_Star%20Badge.png",
+              alt: "info",
+            },
+          },
+          metaHtml:
+            "<div style='font-size: 16px;'>{CONNECT_FAMILY_LABEL} Device</div>",
+          smartphoneReq: "Smartphone bluetooth pairing required",
+          subMetaHtml: "Requires a 365-Day Monitoring Commitment",
+          priceRef: {
+            kind: "device",
+            device: "connect",
+            commitment: "buy 365 us",
+          },
+          icon: {
+            url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6a0227385d60e5e580e45d8b_icon-one-year-v2.avif",
+            alt: "1 year calendar icon",
+          },
+          nextId: "res_final_own_connect_365_us",
+        },
+        {
+          value: "fourMonths",
+          labelHtml:
+            "<span class='u-normal'>I plan to monitor for at least</span> 4 months.",
+          metaHtml:
+            "<div style='font-size: 16px;'>{CONNECT_FAMILY_LABEL} Device</div>",
+          smartphoneReq: "Smartphone bluetooth pairing required",
+          subMetaHtml: "Requires a 120-Day Monitoring Commitment",
+          priceRef: {
+            kind: "device",
+            device: "connect",
+            commitment: "buy 120 us",
+          },
+          icon: {
+            url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6a022738f054f35424d22dad_icon-four-months.avif",
+            alt: "4 month calendar icon",
+          },
+          nextId: "res_final_own_connect_120_us",
+        },
+        {
+          value: "noCommitment",
+          labelHtml:
+            "<span class='u-normal'>I don't want a</span> monitoring commitment.",
+          metaHtml:
+            "<div style='font-size: 16px;'>{CONNECT_FAMILY_LABEL} Device</div>",
+          smartphoneReq: "Smartphone bluetooth pairing required",
+          subMetaHtml: "No monitoring commitment required",
+          priceRef: { kind: "device", device: "connect", commitment: "buy" },
+          icon: {
+            url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6a0227385cfc2c08d4208674_icon-buy.avif",
+            alt: "buy icon",
+          },
+          nextId: "res_final_own_connect",
+        },
+      ],
+    },
     qD2_rent_monitorDuration: {
       id: "qD2_rent_monitorDuration",
       type: "singleChoice",
       text: "How long do you plan on using Soberlink? Pay less by monitoring longer.",
       choiceLayout: "rentDeviceCards",
       size: "xxlg",
+      infoIcon: {
+        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69a9fcbcf5cd846f8b7e504b_icon%20info.png",
+        alt: "Info icon",
+        text: "What is an MTC?",
+      },
+      infoLink: { type: "lightbox", id: "mtcInfo", labelHtml: "MTC info" },
       options: [
         {
           value: "oneYear",
@@ -1989,6 +2079,50 @@ window.quizConfig = {
         devicePricePrefix: "starting at ",
         devicePriceSuffix: " (one-time purchase)",
         commitment: "no minimum plan commitment required",
+      },
+      deviceIcon: {
+        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6887f2ec5c894c7fd201e4d4_connect-dec-tree-100px-w.avif",
+        alt: "Connect Device",
+      },
+      nextId: null,
+    },
+    res_final_own_connect_365_us: {
+      id: "res_final_own_connect_365_us",
+      type: "final",
+      programFromPlan: true,
+      planFromPlan: true,
+      device: "Connect",
+      ownership: "own",
+      pricing: {
+        devicePriceRef: {
+          kind: "device",
+          device: "connect",
+          commitment: "buy 365 us",
+        },
+        devicePriceSuffix: " (one-time purchase)",
+        commitment: "365-day monitoring commitment",
+      },
+      deviceIcon: {
+        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6887f2ec5c894c7fd201e4d4_connect-dec-tree-100px-w.avif",
+        alt: "Connect Device",
+      },
+      nextId: null,
+    },
+    res_final_own_connect_120_us: {
+      id: "res_final_own_connect_120_us",
+      type: "final",
+      programFromPlan: true,
+      planFromPlan: true,
+      device: "Connect",
+      ownership: "own",
+      pricing: {
+        devicePriceRef: {
+          kind: "device",
+          device: "connect",
+          commitment: "buy 120 us",
+        },
+        devicePriceSuffix: " (one-time purchase)",
+        commitment: "120-day monitoring commitment",
       },
       deviceIcon: {
         url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6887f2ec5c894c7fd201e4d4_connect-dec-tree-100px-w.avif",
