@@ -63,7 +63,7 @@ window.quizConfig = {
     mtcInfo: {
       titleHtml: "<strong>What is an MTC?</strong>",
       bodyHtml:
-        "A Minimum Term Contract (MTC) is a commitment to monitor for a set length of time, either 365 days or 120 days. A longer commitment lowers your price.",
+        "[PLACEHOLDER] Explanation of the MTC will go here. Replace this text before going live.",
     },
     womanStory: {
       titleHtml:
@@ -1584,7 +1584,8 @@ window.quizConfig = {
           value: "connect",
           title: "{CONNECT_FAMILY_LABEL}",
           descriptionHtml: `Bluetooth device uses smartphone to transmit test results.<br><span style='color: #00abdf; font-size: 10px;'>Smartphone pairing required.</span>`,
-          pricePrefixHtml: "<span class='u-normal'>from </span>",
+          pricePrefixHtml:
+            "<span class='u-normal' style='font-size: 12px;'>from </span>",
           priceRef: {
             kind: "device",
             device: "connect",
