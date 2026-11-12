@@ -1,29 +1,16 @@
 window.quizConfig = {
   version: "2026-11-09",
   startId: "q1_useCase",
-  activeConnectVariant: "s7",
-  deviceVariants: {
-    connect: {
-      connect: {
-        label: "Connect",
-        param: "connect",
-        imageUrl:
-          "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6887f2ec5c894c7fd201e4d4_connect-dec-tree-100px-w.avif",
-      },
-      s7: {
-        label: "Soberlink 7.0",
-        param: "s7",
-        imageUrl:
-          "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/68cd9c1923caa0a031c70739_soberlink7-dec-tree-100px-w.avif",
-      },
+  devices: {
+    s7: {
+      label: "Soberlink 7.0",
+      imageUrl:
+        "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/68cd9c1923caa0a031c70739_soberlink7-dec-tree-100px-w.avif",
     },
     "cellular 2": {
-      default: {
-        label: "Cellular 2",
-        param: "cellular 2",
-        imageUrl:
-          "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6887f2ecf01bc5160d57ba58_cellular-2-dec-tree-100px-w.avif",
-      },
+      label: "Cellular 2",
+      imageUrl:
+        "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6887f2ecf01bc5160d57ba58_cellular-2-dec-tree-100px-w.avif",
     },
   },
   modals: {
@@ -1582,18 +1569,18 @@ window.quizConfig = {
       options: [
         {
           value: "connect",
-          title: "{CONNECT_FAMILY_LABEL}",
+          title: "Soberlink 7.0",
           descriptionHtml: `Bluetooth device uses smartphone to transmit test results.<br><span style='color: #00abdf; font-size: 10px;'>Smartphone pairing required.</span>`,
           pricePrefixHtml:
             "<span class='u-normal' style='font-size: 12px;'>from </span>",
           priceRef: {
             kind: "device",
-            device: "connect",
+            device: "s7",
             commitment: "buy 365 us",
           },
           icon: {
-            url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6887f2ec5c894c7fd201e4d4_connect-dec-tree-100px-w.avif",
-            alt: "{CONNECT_FAMILY_LABEL}",
+            url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/68cd9c1923caa0a031c70739_soberlink7-dec-tree-100px-w.avif",
+            alt: "Soberlink 7.0",
           },
           nextId: "qD3_own_monitorDuration",
         },
@@ -1636,13 +1623,12 @@ window.quizConfig = {
               alt: "info",
             },
           },
-          metaHtml:
-            "<div style='font-size: 16px;'>{CONNECT_FAMILY_LABEL} Device</div>",
+          metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device</div>",
           smartphoneReq: "Smartphone bluetooth pairing required",
           subMetaHtml: "Requires a 365-Day Monitoring Commitment",
           priceRef: {
             kind: "device",
-            device: "connect",
+            device: "s7",
             commitment: "buy 365 us",
           },
           icon: {
@@ -1655,13 +1641,12 @@ window.quizConfig = {
           value: "fourMonths",
           labelHtml:
             "<span class='u-normal'>I plan to monitor for at least</span> 4 months.",
-          metaHtml:
-            "<div style='font-size: 16px;'>{CONNECT_FAMILY_LABEL} Device</div>",
+          metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device</div>",
           smartphoneReq: "Smartphone bluetooth pairing required",
           subMetaHtml: "Requires a 120-Day Monitoring Commitment",
           priceRef: {
             kind: "device",
-            device: "connect",
+            device: "s7",
             commitment: "buy 120 us",
           },
           icon: {
@@ -1674,11 +1659,10 @@ window.quizConfig = {
           value: "noCommitment",
           labelHtml:
             "<span class='u-normal'>I don't want a</span> monitoring commitment.",
-          metaHtml:
-            "<div style='font-size: 16px;'>{CONNECT_FAMILY_LABEL} Device</div>",
+          metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device</div>",
           smartphoneReq: "Smartphone bluetooth pairing required",
           subMetaHtml: "No monitoring commitment required",
-          priceRef: { kind: "device", device: "connect", commitment: "buy" },
+          priceRef: { kind: "device", device: "s7", commitment: "buy" },
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6a0227385cfc2c08d4208674_icon-buy.avif",
             alt: "buy icon",
@@ -1711,13 +1695,12 @@ window.quizConfig = {
               alt: "info",
             },
           },
-          metaHtml:
-            "<div style='font-size: 16px;'>{CONNECT_FAMILY_LABEL} Device</div>",
+          metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device</div>",
           smartphoneReq: "Smartphone bluetooth pairing required",
           subMetaHtml: "Requires a 365-Day Monitoring Commitment",
           priceRef: {
             kind: "device",
-            device: "connect",
+            device: "s7",
             commitment: "rent 365",
             cadence: "mo",
           },
@@ -1731,13 +1714,12 @@ window.quizConfig = {
           value: "fourMonths",
           labelHtml:
             "<span class='u-normal'>I plan to monitor for at least</span> 4 months.",
-          metaHtml:
-            "<div style='font-size: 16px;'>{CONNECT_FAMILY_LABEL} Device</div>",
+          metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device</div>",
           smartphoneReq: "Smartphone bluetooth pairing required",
           subMetaHtml: "Requires a 120-Day Monitoring Commitment",
           priceRef: {
             kind: "device",
-            device: "connect",
+            device: "s7",
             commitment: "rent 120",
             cadence: "mo",
           },
@@ -2069,12 +2051,12 @@ window.quizConfig = {
       type: "final",
       programFromPlan: true,
       planFromPlan: true,
-      device: "Connect",
+      device: "s7",
       ownership: "own",
       pricing: {
         devicePriceRef: {
           kind: "device",
-          device: "connect",
+          device: "s7",
           commitment: "buy",
         },
         devicePricePrefix: "starting at ",
@@ -2082,8 +2064,8 @@ window.quizConfig = {
         commitment: "no minimum plan commitment required",
       },
       deviceIcon: {
-        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6887f2ec5c894c7fd201e4d4_connect-dec-tree-100px-w.avif",
-        alt: "Connect Device",
+        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/68cd9c1923caa0a031c70739_soberlink7-dec-tree-100px-w.avif",
+        alt: "Soberlink 7.0 Device",
       },
       nextId: null,
     },
@@ -2092,20 +2074,20 @@ window.quizConfig = {
       type: "final",
       programFromPlan: true,
       planFromPlan: true,
-      device: "Connect",
+      device: "s7",
       ownership: "own",
       pricing: {
         devicePriceRef: {
           kind: "device",
-          device: "connect",
+          device: "s7",
           commitment: "buy 365 us",
         },
         devicePriceSuffix: " (one-time purchase)",
         commitment: "365-day monitoring commitment",
       },
       deviceIcon: {
-        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6887f2ec5c894c7fd201e4d4_connect-dec-tree-100px-w.avif",
-        alt: "Connect Device",
+        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/68cd9c1923caa0a031c70739_soberlink7-dec-tree-100px-w.avif",
+        alt: "Soberlink 7.0 Device",
       },
       nextId: null,
     },
@@ -2114,20 +2096,20 @@ window.quizConfig = {
       type: "final",
       programFromPlan: true,
       planFromPlan: true,
-      device: "Connect",
+      device: "s7",
       ownership: "own",
       pricing: {
         devicePriceRef: {
           kind: "device",
-          device: "connect",
+          device: "s7",
           commitment: "buy 120 us",
         },
         devicePriceSuffix: " (one-time purchase)",
         commitment: "120-day monitoring commitment",
       },
       deviceIcon: {
-        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6887f2ec5c894c7fd201e4d4_connect-dec-tree-100px-w.avif",
-        alt: "Connect Device",
+        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/68cd9c1923caa0a031c70739_soberlink7-dec-tree-100px-w.avif",
+        alt: "Soberlink 7.0 Device",
       },
       nextId: null,
     },
@@ -2161,12 +2143,12 @@ window.quizConfig = {
       type: "final",
       programFromPlan: true,
       planFromPlan: true,
-      device: "Connect",
+      device: "s7",
       ownership: "rent",
       pricing: {
         monthlyRef: {
           kind: "device",
-          device: "connect",
+          device: "s7",
           commitment: "rent 365",
           cadence: "mo",
         },
@@ -2179,8 +2161,8 @@ window.quizConfig = {
       //   "CONNECT + $19/mo.\n\n" +
       //   "Add to Cart »  |  Email Recommendations »",
       deviceIcon: {
-        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6887f2ec5c894c7fd201e4d4_connect-dec-tree-100px-w.avif",
-        alt: "Connect Device",
+        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/68cd9c1923caa0a031c70739_soberlink7-dec-tree-100px-w.avif",
+        alt: "Soberlink 7.0 Device",
       },
       nextId: null,
     },
@@ -2190,12 +2172,12 @@ window.quizConfig = {
       type: "final",
       programFromPlan: true,
       planFromPlan: true,
-      device: "Connect",
+      device: "s7",
       ownership: "rent",
       pricing: {
         monthlyRef: {
           kind: "device",
-          device: "connect",
+          device: "s7",
           commitment: "rent 120",
           cadence: "mo",
         },
@@ -2208,8 +2190,8 @@ window.quizConfig = {
       //   "CONNECT + $29/mo.\n\n" +
       //   "Add to Cart »  |  Email Recommendations »",
       deviceIcon: {
-        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6887f2ec5c894c7fd201e4d4_connect-dec-tree-100px-w.avif",
-        alt: "Connect Device",
+        url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/68cd9c1923caa0a031c70739_soberlink7-dec-tree-100px-w.avif",
+        alt: "Soberlink 7.0 Device",
       },
       nextId: null,
     },
