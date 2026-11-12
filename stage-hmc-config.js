@@ -63,7 +63,7 @@ window.quizConfig = {
     mtcInfo: {
       titleHtml: "<strong>What is an MTC?</strong>",
       bodyHtml:
-        "[PLACEHOLDER] Explanation of the MTC will go here. Replace this text before going live.",
+        "A Minimum Term Contract (MTC) is a commitment to monitor for a set length of time, either 365 days or 120 days. A longer commitment lowers your price.",
     },
     womanStory: {
       titleHtml:
