@@ -356,6 +356,17 @@ const app = createApp({
   },
 
   methods: {
+    // Production hostnames use the production session service and cart.
+    // Every other hostname (shc-stage.com, *.webflow.io, localhost, unknown
+    // hosts) uses the sandbox/development endpoints.
+    getEndpoints() {
+      const isProduction = ["soberlink.com", "www.soberlink.com"].includes(
+        window.location.hostname.toLowerCase(),
+      );
+      return isProduction
+        ? { sessionService: productionSession, cartUrl: cart }
+        : { sessionService: developmentSession, cartUrl: sandboxCart };
+    },
     preloadImage(url) {
       if (!url || _preloaded.has(url)) return;
       const img = new Image();
@@ -452,7 +463,7 @@ const app = createApp({
       return "No More Authentication";
     },
     async createEcommerceSession(bearerToken) {
-      const sessionService = window.sl_global_session_service_endpoint;
+      const { sessionService } = this.getEndpoints();
       const sessionUri = `${sessionService}/sessions`;
 
       const response = await fetch(sessionUri, {
@@ -471,7 +482,7 @@ const app = createApp({
       return jsonObj.sessionId.toString();
     },
     async updateEcommerceSession(ecommerceSession, bearerToken) {
-      const sessionService = window.sl_global_session_service_endpoint;
+      const { sessionService } = this.getEndpoints();
       const sessionUri = `${sessionService}/sessions`;
       const response = await fetch(
         `${sessionUri}/${ecommerceSession.sessionId}`,
@@ -492,7 +503,7 @@ const app = createApp({
       return await response.json();
     },
     async getEcommerceSession(sessionId, bearerToken) {
-      const sessionService = window.sl_global_session_service_endpoint;
+      const { sessionService } = this.getEndpoints();
       const sessionUri = `${sessionService}/sessions`;
       const response = await fetch(`${sessionUri}/${sessionId}`, {
         method: "GET",
@@ -686,9 +697,9 @@ const app = createApp({
 
         await this.submitToMake();
 
-        const redirectUrl = window.sl_global_cart_redirect_url;
+        const redirectUrl = this.getEndpoints().cartUrl;
         if (!redirectUrl) {
-          throw new Error("Missing sl_global_cart_redirect_url");
+          throw new Error("Missing cart redirect URL");
         }
 
         const url = `${redirectUrl}?sessionId=${session.sessionId}`;
