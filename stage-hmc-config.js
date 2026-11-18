@@ -1587,7 +1587,7 @@ window.quizConfig = {
         {
           value: "cellular 2",
           title: "Cellular 2",
-          subtitle: "No minimum monitoring commitment required",
+          // subtitle: "No minimum monitoring commitment required",
           descriptionHtml: `
           All-in-one device uses cellular data to transmit test results.<br><span style='color: #00abdf; font-size: 10px;'>No smartphone pairing required.</span>`,
           priceRef: { kind: "device", device: "cellular 2", commitment: "buy" },
