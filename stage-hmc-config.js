@@ -1658,7 +1658,7 @@ window.quizConfig = {
         {
           value: "noCommitment",
           labelHtml:
-            "<span class='u-normal'>I plan to/span> monitor as needed.",
+            "<span class='u-normal'>I plan to</span> monitor as needed.",
           metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device</div>",
           smartphoneReq: "Smartphone bluetooth pairing required",
           subMetaHtml: "No monitoring commitment required",
