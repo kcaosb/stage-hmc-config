@@ -1779,7 +1779,7 @@ window.quizConfig = {
       `,
       textTokens: {
         RENT_START: { kind: "deviceMin", commitment: "rent 365" },
-        BUY_START: { kind: "deviceMin", commitment: "buy" },
+        BUY_START: { kind: "deviceMin", commitment: "buy 365 us" },
       },
       ctaLabel: "Next",
     },
