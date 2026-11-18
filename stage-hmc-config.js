@@ -1539,7 +1539,7 @@ window.quizConfig = {
         {
           value: "rent",
           labelHtml:
-            "<div style='margin-bottom: 5px;'>Rent the Device <span class='u-normal'>from</span> {PRICE}<span style='font-size: 13px;'>/mo</span></div> <ul class='u-normal' style='font-size: 14px;'><li>Low Monthly Payment</li><li>No Upfront Device Costs</li><li>Must be returned</li></ul><div class='u-normal' style='font-size: 11px; color: #666; margin-top: 5px;'>Rentals are available to customers in the United States only.</div>",
+            "<div style='margin-bottom: 5px;'>Rent the Device <span class='u-normal'>from</span> {PRICE}<span style='font-size: 13px;'>/mo</span></div> <ul class='u-normal' style='font-size: 14px;'><li>Low monthly payment</li><li>No upfront device costs</li><li>Must be returned</li></ul><div class='u-normal' style='font-size: 11px; color: #666; margin-top: 5px; line-height: 120%;'>Rentals are available to customers in the United States only.</div>",
           priceRef: { kind: "deviceMin", commitment: "rent 365" },
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/69a74e856cfb277a88a9ea3f_rent.avif",
@@ -1550,7 +1550,7 @@ window.quizConfig = {
         {
           value: "own",
           labelHtml:
-            "<div style='margin-bottom: 5px;'>Own the Device <span class='u-normal'>from</span> {PRICE}</div> <ul class='u-normal' style='font-size: 14px;'><li>One-time purchase</li><li>Own the device forever</li><li>No Additional Contracts</li></ul>",
+            "<div style='margin-bottom: 5px;'>Own the Device <span class='u-normal'>from</span> {PRICE}</div> <ul class='u-normal' style='font-size: 14px;'><li>One-time purchase</li><li>Own the device forever</li><li>No additional contracts</li></ul>",
           priceRef: { kind: "deviceMin", commitment: "buy 365 us" },
           icon: {
             url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6a0227385cfc2c08d4208674_icon-buy.avif",
@@ -1658,7 +1658,7 @@ window.quizConfig = {
         {
           value: "noCommitment",
           labelHtml:
-            "<span class='u-normal'>I don't want a</span> monitoring commitment.",
+            "<span class='u-normal'>I plan to/span> monitor as needed.",
           metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device</div>",
           smartphoneReq: "Smartphone bluetooth pairing required",
           subMetaHtml: "No monitoring commitment required",
@@ -2154,12 +2154,7 @@ window.quizConfig = {
         },
         commitment: "365-day monitoring commitment",
       },
-      // text:
-      //   "Our Recommendation\n\n" +
-      //   "Soberlink is the ultimate investment in safety and trust—because time with your kids is priceless.\n\n" +
-      //   "LEVEL & PLAN (from your previous selection),\n" +
-      //   "CONNECT + $19/mo.\n\n" +
-      //   "Add to Cart »  |  Email Recommendations »",
+
       deviceIcon: {
         url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/68cd9c1923caa0a031c70739_soberlink7-dec-tree-100px-w.avif",
         alt: "Soberlink 7.0 Device",
@@ -2183,12 +2178,6 @@ window.quizConfig = {
         },
         commitment: "120-day monitoring commitment",
       },
-      // text:
-      //   "Our Recommendation\n\n" +
-      //   "Soberlink is the ultimate investment in safety and trust—because time with your kids is priceless.\n\n" +
-      //   "LEVEL & PLAN (from your previous selection),\n" +
-      //   "CONNECT + $29/mo.\n\n" +
-      //   "Add to Cart »  |  Email Recommendations »",
       deviceIcon: {
         url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/68cd9c1923caa0a031c70739_soberlink7-dec-tree-100px-w.avif",
         alt: "Soberlink 7.0 Device",
