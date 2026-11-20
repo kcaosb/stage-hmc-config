@@ -1664,8 +1664,8 @@ window.quizConfig = {
           subMetaHtml: "No monitoring commitment required",
           priceRef: { kind: "device", device: "s7", commitment: "buy" },
           icon: {
-            url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6a0227385cfc2c08d4208674_icon-buy.avif",
-            alt: "buy icon",
+            url: "https://cdn.prod.website-files.com/5f001b69b01d2658098e3f5c/6b00b1f09520f62c533ef92d_icon---months.avif",
+            alt: "calendar icon",
           },
           nextId: "res_final_own_connect",
         },
