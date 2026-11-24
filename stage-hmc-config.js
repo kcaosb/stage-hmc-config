@@ -1572,7 +1572,7 @@ window.quizConfig = {
           title: "Soberlink 7.0",
           descriptionHtml: `Bluetooth device uses smartphone to transmit test results.<br><span style='color: #00abdf; font-size: 10px;'>Smartphone pairing required.</span>`,
           pricePrefixHtml:
-            "<span class='u-normal' style='font-size: 12px;'>from </span>",
+            "<span class='u-normal' style='font-size: 12px;'>Starting at </span>",
           priceRef: {
             kind: "device",
             device: "s7",
@@ -1602,7 +1602,7 @@ window.quizConfig = {
     qD3_own_monitorDuration: {
       id: "qD3_own_monitorDuration",
       type: "singleChoice",
-      text: "How long do you plan on using Soberlink? Pay less by monitoring longer.",
+      textHtml: "<span class='u-bold'>Device prices are based on monitoring duration.</span> How long do you plan on using Soberlink?",
       choiceLayout: "rentDeviceCards",
       size: "xxlg",
       infoIcon: {
