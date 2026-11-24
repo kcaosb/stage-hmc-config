@@ -1602,7 +1602,8 @@ window.quizConfig = {
     qD3_own_monitorDuration: {
       id: "qD3_own_monitorDuration",
       type: "singleChoice",
-      textHtml: "<span class='u-bold'>Device prices are based on monitoring duration.</span> How long do you plan on using Soberlink?",
+      textHtml:
+        "<span class='u-bold'>Device prices are based on monitoring duration.</span> How long do you plan on using Soberlink?",
       choiceLayout: "rentDeviceCards",
       size: "xxlg",
       infoIcon: {
@@ -1623,8 +1624,9 @@ window.quizConfig = {
               alt: "info",
             },
           },
-          metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device</div>",
-          smartphoneReq: "Smartphone bluetooth pairing required",
+          metaHtml:
+            "<div style='font-size: 16px;'>Soberlink 7.0 Device Price</div>",
+          smartphoneReq: "$300 savings when committing to a year",
           subMetaHtml: "Requires a 365-Day Monitoring Commitment",
           priceRef: {
             kind: "device",
@@ -1642,7 +1644,7 @@ window.quizConfig = {
           labelHtml:
             "<span class='u-normal'>I plan to monitor for at least</span> 4 months.",
           metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device</div>",
-          smartphoneReq: "Smartphone bluetooth pairing required",
+          smartphoneReq: "$200 savings when committing to 4 months",
           subMetaHtml: "Requires a 120-Day Monitoring Commitment",
           priceRef: {
             kind: "device",
@@ -1660,7 +1662,7 @@ window.quizConfig = {
           labelHtml:
             "<span class='u-normal'>I plan to monitor</span> as needed.",
           metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device</div>",
-          smartphoneReq: "Smartphone bluetooth pairing required",
+          smartphoneReq: "No savings without committing",
           subMetaHtml: "No monitoring commitment required",
           priceRef: { kind: "device", device: "s7", commitment: "buy" },
           icon: {
