@@ -1644,7 +1644,7 @@ window.quizConfig = {
           labelHtml:
             "<span class='u-normal'>I plan to monitor for at least</span> 4 months.",
           metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device Price</div>",
-          smartphoneReq: "$200 savings when committing to 4 months",
+          smartphoneReq: "$100 savings when committing to 4 months",
           subMetaHtml: "Requires a 120-Day Monitoring Commitment",
           priceRef: {
             kind: "device",
