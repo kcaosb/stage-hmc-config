@@ -1643,7 +1643,7 @@ window.quizConfig = {
           value: "fourMonths",
           labelHtml:
             "<span class='u-normal'>I plan to monitor for at least</span> 4 months.",
-          metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device</div>",
+          metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device Price</div>",
           smartphoneReq: "$200 savings when committing to 4 months",
           subMetaHtml: "Requires a 120-Day Monitoring Commitment",
           priceRef: {
@@ -1661,7 +1661,7 @@ window.quizConfig = {
           value: "noCommitment",
           labelHtml:
             "<span class='u-normal'>I plan to monitor</span> as needed.",
-          metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device</div>",
+          metaHtml: "<div style='font-size: 16px;'>Soberlink 7.0 Device Price</div>",
           smartphoneReq: "No savings without committing",
           subMetaHtml: "No monitoring commitment required",
           priceRef: { kind: "device", device: "s7", commitment: "buy" },
